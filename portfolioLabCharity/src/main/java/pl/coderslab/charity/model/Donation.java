@@ -20,7 +20,7 @@ public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "amount_worker")
+    @Column(name = "amount_bags")
     private Integer quantity;
     @OneToMany
     private List<Category> categories;

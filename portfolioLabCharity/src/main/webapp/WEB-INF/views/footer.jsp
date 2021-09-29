@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: marcinmistela
-  Date: 28/09/2021
-  Time: 12:42
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -27,9 +20,10 @@
     <div class="bottom-line">
         <span class="bottom-line--copy">Copyright &copy; 2018</span>
         <div class="bottom-line--icons">
-            <a href="#" class="btn btn--small"><img src="images/icon-facebook.svg"/></a> <a href="#"
-                                                                                            class="btn btn--small"><img
-                src="images/icon-instagram.svg"/></a>
+            <a href="#" class="btn btn--small">
+                <img src="<c:url value="images/icon-facebook.svg"/>"/></a>
+            <a href="#" class="btn btn--small"><img
+                src="<c:url value="images/icon-instagram.svg"/>"/></a>
         </div>
     </div>
 </footer>
