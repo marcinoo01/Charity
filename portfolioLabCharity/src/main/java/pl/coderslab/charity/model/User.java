@@ -9,6 +9,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -22,7 +24,11 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
+    @Size(min = 2, max = 30)
+    private String name;
+    @Size(min = 2, max = 30)
+    private String surname;
+    @Pattern(regexp = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[a-z]{2,6}$", message = "Bad format")
     private String email;
     private String role;
     private String password;
@@ -39,7 +45,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
     }
 
     @Override
