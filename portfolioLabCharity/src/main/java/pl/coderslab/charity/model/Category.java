@@ -1,9 +1,7 @@
 package pl.coderslab.charity.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import org.springframework.context.annotation.ComponentScan;
 
 import javax.persistence.*;
 
@@ -13,9 +11,15 @@ import javax.persistence.*;
 @Setter
 @ToString
 @NoArgsConstructor
+@ComponentScan
+
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    public Category(String name) {
+        this.name = name;
+    }
 }
