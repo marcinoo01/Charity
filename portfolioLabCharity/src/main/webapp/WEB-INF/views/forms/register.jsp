@@ -8,7 +8,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
-
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -31,16 +35,20 @@
     <h2>Załóż konto</h2>
     <form:form method="post" modelAttribute="user">
         <div class="form-group">
-            <form:input path="name"/>
-            <form:errors path="name" placeholder="name" cssClass="error"/>
+            <form:input path="name" placeholder="name"/>
+            <form:errors path="name" cssClass="error"/>
         </div>
         <div class="form-group">
             <form:input path="surname" placeholder="surname"/>
             <form:errors path="surname" cssClass="error"/>
         </div>
         <div class="form-group">
-            <form:input path="password" placeholder="password"/>
+            <form:password path="password" placeholder="password"/>
             <form:errors path="password"  cssClass="error"/>
+        </div>
+        <div class="form-group">
+            <form:password path="retypePassword" placeholder="Powtórz hasło"/>
+            <form:errors path="retypePassword" cssClass="error"/>
         </div>
 
         <div class="form-group">

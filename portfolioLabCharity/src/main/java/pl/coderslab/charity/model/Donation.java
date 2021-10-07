@@ -1,9 +1,12 @@
 package pl.coderslab.charity.model;
 
+import jdk.jfr.Timespan;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -32,8 +35,10 @@ public class Donation {
     private String zipCode;
     private Long phoneNumber;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Timespan
     private LocalDate pickUpDate;
-    @DateTimeFormat(pattern = "hh-mm-ss")
+    @Timespan
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime pickUpTime;
     private String pickUpComment;
 }
