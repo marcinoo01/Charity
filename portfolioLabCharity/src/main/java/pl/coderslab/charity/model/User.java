@@ -28,10 +28,12 @@ public class User implements UserDetails {
     private String name;
     @Size(min = 2, max = 30)
     private String surname;
-    @Pattern(regexp = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[a-z]{2,6}$", message = "Bad format")
     private String email;
     private String role;
+    @Size(min = 4, message ="password at least 4 character")
     private String password;
+    @Transient
+    private String retypePassword;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

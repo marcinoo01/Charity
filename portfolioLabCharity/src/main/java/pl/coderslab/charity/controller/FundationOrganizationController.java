@@ -1,9 +1,11 @@
 package pl.coderslab.charity.controller;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.charity.model.Donation;
 import pl.coderslab.charity.repository.CategoryRepository;
@@ -11,6 +13,7 @@ import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 
 @Controller
 public class FundationOrganizationController {
@@ -36,6 +39,6 @@ public class FundationOrganizationController {
     @PostMapping("/foundation")
     public String foundation(Donation donation){
         donationRepository.save(donation);
-        return "/";
+        return "";
     }
 }
