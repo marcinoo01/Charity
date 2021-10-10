@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder getPasswordEncoder(){
+    public PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -37,6 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/user/**").hasAnyAuthority("ROLE_USER")
                 .antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
-                .and().formLogin().loginPage("/login").defaultSuccessUrl("/successLogin",true);
+                .and().formLogin().loginPage("/login").usernameParameter("email").defaultSuccessUrl("/successLogin", true)
+                .and().logout().permitAll();
     }
 }
