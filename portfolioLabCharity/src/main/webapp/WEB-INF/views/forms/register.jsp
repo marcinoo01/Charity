@@ -35,12 +35,8 @@
     <h2>Załóż konto</h2>
     <form:form method="post" modelAttribute="user">
         <div class="form-group">
-            <form:input path="name" placeholder="name"/>
-            <form:errors path="name" cssClass="error"/>
-        </div>
-        <div class="form-group">
-            <form:input path="surname" placeholder="surname"/>
-            <form:errors path="surname" cssClass="error"/>
+            <form:input path="email" placeholder="email"/>
+            <form:errors path="email" cssClass="error"/>
         </div>
         <div class="form-group">
             <form:password path="password" placeholder="password"/>
@@ -49,11 +45,6 @@
         <div class="form-group">
             <form:password path="retypePassword" placeholder="Powtórz hasło"/>
             <form:errors path="retypePassword" cssClass="error"/>
-        </div>
-
-        <div class="form-group">
-            <form:input path="email" placeholder="email"/>
-            <form:errors path="email" cssClass="error"/>
         </div>
         <div class="form-group form-group--buttons">
             <a href="login.html" class="btn btn--without-border">Zaloguj się</a>

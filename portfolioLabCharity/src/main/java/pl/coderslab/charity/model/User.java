@@ -26,8 +26,6 @@ public class User implements UserDetails {
     private Long id;
     @Size(min = 2, max = 30)
     private String name;
-    @Size(min = 2, max = 30)
-    private String surname;
     private String email;
     private String role;
     @Size(min = 4, message ="password at least 4 character")
