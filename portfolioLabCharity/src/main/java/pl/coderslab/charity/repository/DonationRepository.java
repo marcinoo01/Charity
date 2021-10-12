@@ -11,8 +11,8 @@ import java.util.Optional;
 public interface DonationRepository extends JpaRepository<Donation, Long> {
     @Override
     Optional<Donation> findById(Long id);
-    @Query(value = "SELECT sum(d.quantity) FROM Donation d")
-    Long sumAllQuantity();
+    @Query("SELECT sum (d.quantity) from Donation d")
+    Integer sumQuantity();
     @Query(value = "SELECT count(d.id) FROM Donation d")
     Long countAllById();
 }
