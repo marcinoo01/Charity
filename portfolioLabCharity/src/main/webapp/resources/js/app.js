@@ -171,4 +171,36 @@ document.addEventListener("DOMContentLoaded", function() {
   if (form !== null) {
     new FormSteps(form);
   }
+
+  function data() {
+    let categoryArray = [];
+    $('.categoriesList').each(function () {
+      categoryArray.push($(this).val());
+    });
+    let categoriesSelected = " ";
+    $('.categoriesList:checked').each(function () {
+      categoriesSelected += categoryArray[$(this).val() - 1] + " ";
+    });
+
+    let institutionName = $('.institutionsList:checked').val();
+    $('#categoryToDisplay').text(categoriesSelected);
+
+    let bags = $('#bags').val();
+    $('#bagNumber').text('Liczba worków: ' + bags + ' Kategorie: ');
+
+    $('#institutionSelected').text(institutionName);
+    let address = $('#fullAddress');
+    let city = $('input[name=city', '#form').val();
+    let street = $('input[name=street', '#form').val();
+    let zipcode = $('input[name=zipcode', '#form').val();
+    let phone = $('input[name=phone', '#form').val();
+    address.append("<li>" + street + "</li>").append("<li>" + zipcode + "</li>").append("<li>" + city + "</li>").append("<li>" + phone + "</li>");
+
+    let details = $('#fullDetails');
+    let date = $('input[name=pickUpDate', '#form').val();
+    let time = $('input[name=pickUpTime', '#form').val();
+    let comment = $('textarea[name=pickUpComment', '#form').val();
+    details.append("<li>" + date + "</li>").append("<li>" + time + "</li>").append("<li>" + comment + "</li>");
+  }
 });
+

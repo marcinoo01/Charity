@@ -17,7 +17,7 @@
     <div class="container container--85">
         <div class="stats--item">
             <c:if test="${quantity != null}">
-            <em>${quantity}</em>
+                <em>${quantity}</em>
             </c:if>
             <c:if test="${quantity == null}">
                 <em>0</em>
