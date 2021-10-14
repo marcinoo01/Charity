@@ -42,7 +42,7 @@
                                 <div class="subtitle">Cel i misja: ${descriptions[c.index]} <a
                                         href="/admin/foundation/edit/{id}" class="change-descripiton"> Zmien opis</a>
                                 </div>
-                                <a href="/admin/foundation/delete/{id}" class="delete">Usun</a>
+                                <a href="/admin/foundation/delete/${ins.id}" class="delete">Usuń</a>
                             </div>
                         </div>
                     </c:if>

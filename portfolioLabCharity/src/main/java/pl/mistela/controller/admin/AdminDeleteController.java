@@ -1,9 +1,8 @@
 package pl.mistela.controller.admin;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import pl.mistela.repository.UserRepository;
 
 
@@ -18,9 +17,8 @@ public class AdminDeleteController {
     }
 
     @RequestMapping("/delete/{id}")
-    @ResponseBody
-    public String delete(@PathVariable Long id){
-        userRepository.delete(userRepository.findById(id).get());
+    public String delete(@RequestParam String id){
+        userRepository.delete(userRepository.findById(Long.parseLong(id)).get());
         return "redirect:/admin/foundation";
     }
 }

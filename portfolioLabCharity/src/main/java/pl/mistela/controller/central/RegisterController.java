@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.mistela.model.User;
+import pl.mistela.service.EmailServiceImplementation;
 import pl.mistela.service.UserService;
 
 import javax.validation.Valid;
@@ -15,9 +16,11 @@ import javax.validation.Valid;
 public class RegisterController {
 
     private final UserService userService;
+    private final EmailServiceImplementation emailServiceImplementation;
 
-    public RegisterController(UserService userService) {
+    public RegisterController(UserService userService, EmailServiceImplementation emailServiceImplementation) {
         this.userService = userService;
+        this.emailServiceImplementation = emailServiceImplementation;
     }
 
     @GetMapping("/register")
@@ -27,13 +30,13 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    @ResponseBody
     public String register(@Valid User user, BindingResult result){
         if(result.hasErrors() || !user.getPassword().equals(user.getRetypePassword())){
-            return "d";
+            return "redirect:/register";
         }else {
+            emailServiceImplementation.sendSimpleMessage("mistel940@gmail.com", "subject", "text");
             userService.add(user);
-            return "/";
+            return "redirect:/";
         }
     }
 }
